@@ -22,6 +22,7 @@ public class Guerreiro {
         }
             return vidas;
     }
+
 }
         
         
