@@ -7,10 +7,14 @@ import java.util.Random;
 */
 public class Guerreiro {
     private String nome;
-    private int qtdVidas;
+    public int qtdVidas;
     
     public String vidaExtra(){
-        return "";
+        /*⮚ Método String vidaExtra(): Este método ler (obtido via teclado) um pedido de Misericórdia do Guerreiro por 
+    mais UMA(1) Vida;*/
+        String misericordia;
+        misericordia = InOut.leString("Você está prestes a ir para o submundo, mas caso convença o teu Criador de que sua vida ainda é necessária na Terra conseguirá mais um vida! Convença o Criador: ");
+        return misericordia;
     }
     public int setVidas(){
         Random geradorRandom = new Random();
