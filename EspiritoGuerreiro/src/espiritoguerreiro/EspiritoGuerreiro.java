@@ -7,17 +7,19 @@ package espiritoguerreiro;
 public class EspiritoGuerreiro {
         public static void main(String[] args) {
         Oraculo o = new Oraculo();
+        o.setNome("");
+        o.warrior.setVidas();
         System.out.println(o.prologoIntroducao());
         System.out.println(o.loadLevel1());
-        System.out.println(o.loadLevel2());
-        System.out.println(o.decidirVidaExtra(o.warrior.vidaExtra()));
+        //System.out.println(o.loadLevel2());
+        //System.out.println(o.decidirVidaExtra(o.warrior.vidaExtra()));
     }
 }
 /*
-⮚ Método bool decidirVidaExtra(String Misericordia): Este método recebe o Pedido de Misericórdia do 
-Guerreiro e o Oráculo decide se concede ou não uma (1) Vida Extra. A vida extra será concedida se o 
-Pedido de Misericórdia do Guerreiro tiver mais que cinco palavras. 
 
-⮚ Método String prologoPerdedor(): Este método exibe na tela um Prólogo (com Nomes) do Oráculo para o 
-Guerreiro: PERDEDOR;
+Descrição do Comportamento das classes:
+
+
+Na classe Principal (main), faça a instância de um Objeto: Oráculo Master e jogando no MÍNIMO UMA (1) PARTIDA, 
+exibe todo seu Estado + Comportamento, conforme o descritivo do jogo
 */
