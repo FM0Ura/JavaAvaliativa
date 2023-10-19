@@ -1,25 +1,38 @@
 package espiritoguerreiro;
 
-/**
- *
- * @author alunodev10
- */
+/** @author FM0ura */
+
 public class EspiritoGuerreiro {
         public static void main(String[] args) {
-        Oraculo o = new Oraculo();
-        o.setNome("");
-        o.warrior.setVidas();
-        System.out.println(o.prologoIntroducao());
-        System.out.println(o.loadLevel1());
-        //System.out.println(o.loadLevel2());
-        //System.out.println(o.decidirVidaExtra(o.warrior.vidaExtra()));
-    }
+                Oraculo master = new Oraculo();
+                String continuar;
+                master.setNome(); // NOME DO ORÁCULO
+
+                master.prologoIntroducao(); // PRÓLOGO DE INTRODUÇÃO
+
+                // LOOP PARA CASO O JOGADOR QUEIRA JOGAR NOVAMENTE
+                do {
+                        int vidasRestantes = master.loadLevel1(); // LEVEL 1
+
+                        if (vidasRestantes == 0) {
+                                master.prologoPerdedor();
+                                break;
+                        } // GAME OVER -- LEVEL 1
+
+                        // LEVEL 2
+                        vidasRestantes = master.loadLevel2();
+
+                        if (vidasRestantes == 0) {
+                                master.prologoPerdedor();
+                                break;
+                        } // GAME OVER -- LEVEL 2
+
+                        // QUER CONTINUAR A PARTIDA?
+                        continuar = InOut.leString("Deseja jogar outra partida? (Digite 'SIM' para continuar ou 'NÃO' para encerrar o jogo)");
+                        if (!continuar.equalsIgnoreCase("SIM")) {
+                                break; // QUIT
+                        }
+
+                } while (true);
+        }
 }
-/*
-
-Descrição do Comportamento das classes:
-
-
-Na classe Principal (main), faça a instância de um Objeto: Oráculo Master e jogando no MÍNIMO UMA (1) PARTIDA, 
-exibe todo seu Estado + Comportamento, conforme o descritivo do jogo
-*/

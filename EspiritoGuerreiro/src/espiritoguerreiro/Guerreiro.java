@@ -1,37 +1,43 @@
+// IMPORTAÇÕES
 package espiritoguerreiro;
 import java.util.Random;
-/*
 
-* @author FM0ura
+/** @author FM0ura */
 
-*/
 public class Guerreiro {
     private String nome;
     public int qtdVidas;
-    
-    // Não está sendo utilizada a variavel String nome;
-    /*public void setNome(String Nome){
-        Nome = InOut.leString("Oráculo, qual o nome de teu guerreiro?");
-        nome = Nome;
+
+    // CONSTRUTOR.
+    public Guerreiro(String nome) {
+        this.nome = nome;
+        this.qtdVidas = setVidas();
     }
-    */
-    // vidaExtra() -- FUNCIONANDO
-    public String vidaExtra(){
-        String misericordia;
-        misericordia = InOut.leString("Você está prestes a ir para o submundo, mas caso convença o teu Criador de que sua vida ainda é necessária na Terra conseguirá mais um vida! Convença o Criador: ");
-        return misericordia;
+
+    // OBTER QUANTIDADE DE VIDA.
+    public int getQtdVidas() {
+        return qtdVidas;
     }
-    // setVidas() -- FUNCIONANDO
-    public int setVidas(){
-        Random geradorRandom = new Random();
-        int vidas = geradorRandom.nextInt(13);
-        if (vidas < 9){
-            while (vidas < 9){
-                vidas = geradorRandom.nextInt(13);
-            }
+
+    // DEFINIR QUANTIDADE DE VIDA.
+    public int setVidas() {
+        Random random = new Random();
+        return random.nextInt(4) + 9;
+    }
+
+    // SOLICITAR VIDA EXTRA PARA ORÁCULO
+    public void vidaExtra(Oraculo oraculo) {
+        String misericordia = InOut.leString("Guerreiro, você anseia pela misericórdia divina para com sua vida? ");
+
+        boolean concederVidaExtra = oraculo.decidirVidaExtra(misericordia);
+
+        if (concederVidaExtra) {
+            qtdVidas = 1;
+            InOut.MsgDeInformacao("REDENÇÃO","Guerreiro, você ganhou uma vida extra! Agora você tem " + qtdVidas + " vidas.");
+        } else {
+            InOut.MsgDeInformacao("PERDIÇÃO","Volte para debaixo da terra, de onde nunca deveria ter saído!");
         }
-        System.out.println("A quantidade de vidas de " + nome + " é " + qtdVidas);
-            return vidas;
     }
+
 
 }

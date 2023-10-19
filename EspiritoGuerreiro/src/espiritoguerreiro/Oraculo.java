@@ -1,168 +1,118 @@
 package espiritoguerreiro;
 import java.util.Random;
 
-/**
- *
- * @author FM0ura
- */
+/** @author FM0ura */
+
 public class Oraculo {
     private String nome;
-    public Guerreiro warrior = new Guerreiro();
-/*
-    // ORACULO:
-    ⮚ Método int loadLevel2(int opcao): Este método faz um jogo de PAR ou ÍMPAR com o Oráculo. O Guerreiro 
-    decide na variável Opção: PAR ou ÍMPAR e o método retorna se o Guerreiro Ganhou ou Perdeu: SE a 
-    SOMA deu PAR ou ÍMPAR. O Oráculo e O Guerreiro irão receber números sorteados entre [0, 5].
+    public Guerreiro warrior = new Guerreiro("Berseker");
 
-    ⮚ Método bool decidirVidaExtra(String Misericordia): Este método recebe o Pedido de Misericórdia do 
-    Guerreiro e o Oráculo decide se concede ou não uma (1) Vida Extra. A vida extra será concedida se o 
-    Pedido de Misericórdia do Guerreiro tiver mais que cinco palavras. 
-
-
-
-    ⮚ Método String prologoVencedor(): Este método exibe na tela um Prólogo (com Nomes) do Oráculo para o 
-    Guerreiro: VENCEDOR;
-
-    ⮚ Método String prologoPerdedor(): Este método exibe na tela um Prólogo (com Nomes) do Oráculo para o 
-    Guerreiro: PERDEDOR;
-*/
-    // setNome() -- FUNCIONANDO
-    // QUERO TIRAR O PARAMETRO PARA USAR O IN/OUT
-    public void setNome(String Nome){
-        /* ⮚ Método void setNome(String Nome): Este método é para setar o Nome do Oráculo;*/
-        Nome = InOut.leString("Qual o nome do Oráculo?");
-        nome = Nome;
+    // MÉTODO DEFINIR NOME
+    public void setNome(){
+        nome = InOut.leString("Olá Oráculo qual o seu nome?");
     }
 
-    
-    // prologoIntroducao() -- FUNCIONANDO
-    public String prologoIntroducao(){
-        /*
-        ⮚ Método String prologoIntroducao(): Este método exibe na tela um Prólogo (com Nomes) do Oráculo para o 
-        Guerreiro + A quantidade de vidas do Guerreiro;
-        */
-        InOut.MsgDeInformacao("Introdução","Bem vindo grande Oráculo " + nome + ", que Deus esteja com você e seu Guerreiro durante sua jornada! Com a benção que Ele proporcionou a vocês seu Guerreiro possui " + warrior.setVidas() + " vidas!");
-        return "Bem vindo grande Oráculo " + nome + ", que Deus esteja com você e seu Guerreiro durante sua jornada! Com a benção que Ele proporcionou a vocês seu Guerreiro possui " + warrior.setVidas() + " vidas!";
+    // MÉTODO EXIBIR INFOS
+    public String prologoIntroducao() {
+        InOut.MsgDeAviso("Introdução","Olá, Guerreiro, Eu sou o Oráculo " + (nome) + ". Você parece ter coragem o suficiente para encarar esta jornada. Atualmente, você possui " + warrior.getQtdVidas() + " vidas. Vamos prosseguir...");
+        return "Olá, Guerreiro, Eu sou o Oráculo " + nome + ". Você parece ter coragem o suficiente para encarar esta jornada. Atualmente, você possui " + warrior.getQtdVidas() + " vidas. Vamos prosseguir...";
     }
-    
-    
-    public String prologoPerdedor(){
 
-        
-        
-        
-        return " ";
-}
-    
-    public String prologoVencedor(){/*Método String prologoVencedor(): Este método exibe na tela um Prólogo (com Nomes) do Oráculo para o 
-        Guerreiro: VENCEDOR;*/ 
-        
-        
-        
-        
-        return " ";
+    // MÉTODO DO LEVEL 1
+    public int loadLevel1() {
+        Random random = new Random();
+        int segredo = random.nextInt(100) + 1; // GERADOR ALEATÓRIO DE 1 A 100
+
+        int palpite;
+        int vidas = warrior.getQtdVidas();
+        boolean concedeuVidaExtra = false; // CONTROLE DE VIDA EXTRA
+
+        InOut.MsgDeInformacao("LEVEL 1", "Nessa caverna há um segredo. Tente adivinhá-lo!");
+        InOut.MsgDeInformacao("LEVEL 1", "(DIGITE NÚMEROS DE 1 a 100)");
+
+        do {
+            palpite = InOut.leInt("Guerreiro, faça o seu palpite: ");
+            if (palpite < segredo) {
+                InOut.MsgDeAviso("ERRADO!", "O segredo é MAIOR do que o seu palpite!\nVocê agora tem " + (vidas - 1) + " vidas restantes.");
+            } else if (palpite > segredo) {
+                InOut.MsgDeAviso("ERRADO!", "O segredo é MENOR do que o seu palpite!\nVocê agora tem " + (vidas - 1) + " vidas restantes.");
+            } else {
+                InOut.MsgSemIcone("ACERTOU!", "Você apenas teve sorte... Você acertou o segredo!");
+                break;
+            }
+
+            vidas--;
+
+            if (vidas == 0 && !concedeuVidaExtra) {
+                InOut.MsgDeAviso("VIDAS ESGOTADAS!", "Você perdeu todas as vidas. Pedindo Misericórdia...");
+                warrior.vidaExtra(this); // Chama o método vidaExtra para pedir uma vida extra
+                concedeuVidaExtra = true;
+                vidas++; // Incrementa a vida extra
+            } else if (vidas == 0) {
+                InOut.MsgDeErro("GAME OVER", "Suas vidas se esgotaram. O segredo era " + segredo + ".");
+                prologoPerdedor();
+                break;
+            }
+        } while (vidas > 0);
+
+        return vidas;
     }
-    public boolean loadLevel1(){
-        /*
-        ⮚ Método int loadLevel1(): Este método faz o sorteio de um Número entre [1, 100]. O Oráculo deve dar uma 
-        dica ao Guerreiro: Segredo é MENOR ou MAIOR que o PALPITE do número escolhido (obtido via teclado) 
-        pelo Guerreiro. Cada erro do Guerreiro é uma vida a menos!
-        */
-        // VARIÁVEIS
-        Random geradorRandom = new Random();
-        int palpite, senha, tentativa = 0;
-        senha = geradorRandom.nextInt(101);
 
-        // ENTRADA
-        palpite = InOut.leInt(nome + " descubra qual o segredo bravo guerreiro, apenas assim conseguirá prosseguir!\n A senha é um número entre 0 a 100: ");
-        if(warrior.qtdVidas -tentativa == 0){
-            while (tentativa != warrior.qtdVidas) {       
-                if (palpite == senha) {
-                    InOut.MsgDeAviso("Passou de Nível!", "Parabéns guerreiro, você acertou a senha");
-                    return true;
-                } else if (palpite > senha){
-                    InOut.MsgDeAviso("Senha Errada!", "Infelizmente você errou, esse número é maior que a senha");
-                    InOut.MsgDeAviso("Vidas do Guerreiro", " O Guerreiro possui mais " + (warrior.qtdVidas-tentativa) + " vidas!");
-                    palpite = InOut.leInt("Faça seu próximo palpite: ");
-                    
-                    tentativa++;
-                } else if (palpite < senha) {
-                    InOut.MsgDeAviso("Senha Errada!", "Infelizmente você errou, esse número é menor que a senha");
-                    InOut.MsgDeAviso("Vidas do Guerreiro", " O Guerreiro possui mais " + (warrior.qtdVidas-tentativa) + " vidas!");
-                    palpite = InOut.leInt("Faça seu próximo palpite: ");
-                    
-                    tentativa++;
+
+    // MÉTODO DO LEVEL 2
+
+    public int loadLevel2() {
+        Random random = new Random();
+        int guerreiroEscolha = random.nextInt(6); // GERADOR DE 0 A 5 DO GUERREIRO
+        int oraculoEscolha = random.nextInt(6);    // GERADOR DE 0 A 5 DO ORÁCULO
+        int soma = guerreiroEscolha + oraculoEscolha;
+        int vidas = warrior.getQtdVidas();
+        boolean concedeuVidaExtra = false; // CONTROLE DE VIDA EXTRA
+
+        InOut.MsgDeInformacao("LEVEL 2", "Vamos jogar PAR ou ÍMPAR. Guerreiro, escolha PAR ou ÍMPAR.");
+
+        String opcao = InOut.leString("Guerreiro, escolha PAR ou ÍMPAR: ");
+
+        if ((opcao.equalsIgnoreCase("PAR") && soma % 2 == 0) || (opcao.equalsIgnoreCase("ÍMPAR") && soma % 2 != 0)) {
+            InOut.MsgDeAviso("VOCÊ VENCEU!", "A soma deu " + (soma % 2 == 0 ? "PAR" : "ÍMPAR") + ".");
+            prologoVencedor();
+        } else {
+            InOut.MsgDeErro("VOCÊ PERDEU!", "A soma deu " + (soma % 2 == 0 ? "PAR" : "ÍMPAR") + ". Pedindo Misericórdia...");
+            vidas--;
+
+            if (vidas == 0) {
+                if (concedeuVidaExtra == false) {
+                    InOut.MsgDeAviso("VIDAS ESGOTADAS!", "Você perdeu todas as vidas. Pedindo Misericórdia...");
+                    warrior.vidaExtra(this);
+                    concedeuVidaExtra = true;
+                    vidas++;
+                } else {
+                    InOut.MsgDeErro("GAME OVER", "Suas vidas se esgotaram. Fim do Jogo.");
+                    prologoPerdedor();
+                    return 0;
                 }
             }
         }
-    return false;
-    }    
-}  
 
-            
-  /*
-    
-    public boolean loadLevel2(){
-        // GERADORES
-        Random geradorGuerreiroRandom = new Random();
-        Random geradorOraculoRandom = new Random();
-        // VARIÁVEIS
-        int guerreiroRandom, oraculoRandom, soma;
-        String decisao;
-        
-        guerreiroRandom = geradorGuerreiroRandom.nextInt(6);
-        oraculoRandom = geradorOraculoRandom.nextInt(6);
-        
-        decisao = InOut.leString("Nesse nível você precisará passar por um partida de PAR ou ÍMPAR. Qual opção você prefere apostar? (Digite 'IMPAR' ou 'PAR')");
-        soma = guerreiroRandom + oraculoRandom;
-        if ("PAR".equals(decisao)) {
-            if (soma % 2 == 0){
-                System.out.println("Parabéns! Você GANHOU!");
-                return true;
-            } else {
-                System.out.println("Infelizmente! Você PERDEU!");
-                return false;
-            }
-        } else if ("IMPAR".equals(decisao)){
-            if (soma % 2 != 0){
-                System.out.println("Parabéns! Você GANHOU!");
-                return true;
-            } else{
-                System.out.println("Infelizmente! Você PERDEU!");
-                return false;
-            }
-            
-            } else{
-                System.out.println("OPÇÃO INVÁLIDA!");
-            }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        return true;
+        return vidas;
     }
-    public boolean decidirVidaExtra(String frase){
-        /*Método bool decidirVidaExtra(String Misericordia): Este método recebe o Pedido de Misericórdia do
-        Guerreiro e o Oráculo decide se concede ou não uma (1) Vida Extra. A vida extra será concedida se o
-        Pedido de Misericórdia do Guerreiro tiver mais que cinco palavras.
-        String[] misericordia = frase.split(" ");
-        if (misericordia.length > 5) {
-            System.out.println("O senhor teu Deus reconheceu sua bravura e mediante a isso te provê uma chance de continuar tua jornada!");
-            warrior.qtdVidas += 1;
-            return true;
-        } else{
-            System.out.println("Você não tem mais nada para fazer na Terra. Sucumba!");
-            return false;
-        }
-}
-    
-    
-    
-}
 
-*/
+
+
+    // MÉTODO PARA VERIFICAR O PEDIDO DE MISERICÓRDIA DO GUERREIRO
+    public boolean decidirVidaExtra(String misericordia) {
+        return misericordia.split(" ").length > 5;
+    }
+
+    // PROLOGO PARA QUANDO VENCER
+    public String prologoVencedor() {
+        InOut.MsgDeAviso("VENCEDOR!", "Parabéns, Guerreiro! Você é um VENCEDOR! Continue sua jornada com coragem e determinação.");
+        return "Guerreiro VENCEU!";
+    }
+
+    // PROLOGO PARA QUANDO PERDER
+    public String prologoPerdedor() {
+        InOut.MsgDeAviso("PERDEDOR!", "Volte para de baixo da terra de onde nunca deveria ter saído!");
+        return "Guerreiro PERDEU!";
+    }
+}
