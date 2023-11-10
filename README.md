@@ -2,7 +2,13 @@
 
 ## Proposta
 
+### Folder `Implementação de Sistemas`
+
 Resolução de situações problema utilizando Programação Orientada a Objetos (POO) da Linguagem de Programação Java.
+
+### Folder `GreenFoot Game`
+
+Criação de um jogo utilizando a IDE GreenFoot.
 
 ## Situações Problema
 
