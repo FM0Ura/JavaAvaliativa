@@ -2,11 +2,9 @@
 
 <item itemtype="Voltage Source" CircId="Voltage Source-8" mainComp="false" ShowProp="MaxValue" Show_id="false" Show_Val="true" Pos="284,144" rotation="0" hflip="1" vflip="1" label="Voltage Source-8" idLabPos="-32,-48" labelrot="0" valLabPos="-8,30" valLabRot="0" Running="true" Value_Volt="3 V" MaxValue="5 V" />
 
-<item itemtype="ADC" CircId="ADC-11" mainComp="false" ShowProp="Vref" Show_id="false" Show_Val="true" Pos="372,168" rotation="0" hflip="1" vflip="1" label="ADC-11" idLabPos="-16,-80" labelrot="0" valLabPos="-7,15" valLabRot="0" Num_Bits="3 _Bits" Vref="2.75 V" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
-
 <item itemtype="DcMotor" CircId="DcMotor-35" mainComp="false" Show_id="true" Show_Val="false" Pos="760,156" rotation="0" hflip="1" vflip="1" label="DcMotor-35" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
 
-<item itemtype="ADC" CircId="ADC-36" mainComp="false" ShowProp="Vref" Show_id="false" Show_Val="true" Pos="372,216" rotation="0" hflip="1" vflip="1" label="ADC-36" idLabPos="-16,-80" labelrot="0" valLabPos="-7,15" valLabRot="0" Num_Bits="3 _Bits" Vref="5 V" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
+<item itemtype="ADC" CircId="ADC-36" mainComp="false" ShowProp="Vref" Show_id="false" Show_Val="true" Pos="364,228" rotation="0" hflip="1" vflip="1" label="ADC-36" idLabPos="-16,-80" labelrot="0" valLabPos="-7,15" valLabRot="0" Num_Bits="7 _Bits" Vref="5 V" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
 
 <item itemtype="Ground" CircId="Ground-82" mainComp="false" Show_id="false" Show_Val="false" Pos="788,236" rotation="0" hflip="1" vflip="1" label="Ground-82" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
@@ -74,9 +72,7 @@
 
 <item itemtype="TextComponent" CircId="TextComponent-1789" mainComp="false" Show_id="false" Show_Val="false" Pos="248,84" rotation="0" hflip="1" vflip="1" label="TextComponent-1789" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Fixed_Width="false" Text="TERMOMETRO" />
 
-<item itemtype="TextComponent" CircId="TextComponent-1791" mainComp="false" Show_id="false" Show_Val="false" Pos="336,100" rotation="0" hflip="1" vflip="1" label="TextComponent-1791" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Fixed_Width="false" Text="CONVERSOR 1" />
-
-<item itemtype="TextComponent" CircId="TextComponent-1792" mainComp="false" Show_id="false" Show_Val="false" Pos="336,252" rotation="0" hflip="1" vflip="1" label="TextComponent-1792" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Fixed_Width="false" Text="CONVERSOR 2" />
+<item itemtype="TextComponent" CircId="TextComponent-1792" mainComp="false" Show_id="false" Show_Val="false" Pos="320,268" rotation="0" hflip="1" vflip="1" label="TextComponent-1792" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Fixed_Width="false" Text="CONVERSOR 1" />
 
 <item itemtype="TextComponent" CircId="TextComponent-1793" mainComp="false" Show_id="false" Show_Val="false" Pos="520,352" rotation="0" hflip="1" vflip="1" label="TextComponent-1793" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Fixed_Width="false" Text="COMPARADOR 1" />
 
@@ -96,7 +92,7 @@
 
 <item itemtype="TextComponent" CircId="TextComponent-1801" mainComp="false" Show_id="false" Show_Val="false" Pos="648,428" rotation="0" hflip="1" vflip="1" label="TextComponent-1801" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Fixed_Width="false" Text="LÓGICA DE DESLIGAR O CLOCK" />
 
-<item itemtype="Node" CircId="Node-50" mainComp="false" Pos="336,160" />
+<item itemtype="TextComponent" CircId="TextComponent-1802" mainComp="false" Show_id="false" Show_Val="false" Pos="396,196" rotation="0" hflip="1" vflip="1" label="TextComponent-1802" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Fixed_Width="false" Text="painel de 7seg&#xa;" />
 
 <item itemtype="Node" CircId="Node-202" mainComp="false" Pos="484,308" />
 
@@ -163,12 +159,6 @@
 <item itemtype="Node" CircId="Node-1784" mainComp="false" Pos="732,604" />
 
 <item itemtype="Node" CircId="Node-1786" mainComp="false" Pos="668,148" />
-
-<item itemtype="Connector" uid="connector-1635" startpinid="Voltage Source-8-outPin" endpinid="Node-50-0" pointList="312,160,336,160" />
-
-<item itemtype="Connector" uid="connector-1636" startpinid="ADC-36-in0" endpinid="Node-50-1" pointList="348,208,336,208,336,160" />
-
-<item itemtype="Connector" uid="connector-1637" startpinid="Node-50-2" endpinid="ADC-11-in0" pointList="336,160,348,160" />
 
 <item itemtype="Connector" uid="connector-1638" startpinid="SwitchDip-208-switch0-pinN" endpinid="74HC85-205-B0" pointList="512,308,520,308" />
 
@@ -376,17 +366,11 @@
 
 <item itemtype="Connector" uid="Connector-1779" startpinid="Led-1769-lPin" endpinid="Diode-1778-rPin" pointList="632,604,676,604" />
 
-<item itemtype="Connector" uid="connector-1658" startpinid="74HC85-205-A0" endpinid="ADC-36-out0" pointList="520,252,456,252,456,208,396,208" />
+<item itemtype="Connector" uid="connector-1658" startpinid="74HC85-205-A0" endpinid="ADC-36-out0" pointList="520,252,456,252,456,204,388,204" />
 
-<item itemtype="Connector" uid="connector-1654" startpinid="ADC-36-out1" endpinid="74HC85-205-A1" pointList="396,216,444,216,444,260,520,260" />
+<item itemtype="Connector" uid="connector-1654" startpinid="ADC-36-out1" endpinid="74HC85-205-A1" pointList="388,212,444,212,444,260,520,260" />
 
-<item itemtype="Connector" uid="connector-1655" startpinid="ADC-36-out2" endpinid="74HC85-205-A2" pointList="396,224,436,224,436,268,520,268" />
-
-<item itemtype="Connector" uid="connector-1664" startpinid="ADC-11-out0" endpinid="And Gate-444-in0" pointList="396,160,396,128,520,128" />
-
-<item itemtype="Connector" uid="connector-1670" startpinid="And Gate-444-in1" endpinid="ADC-11-out1" pointList="520,136,404,136,404,168,396,168" />
-
-<item itemtype="Connector" uid="connector-1668" startpinid="And Gate-444-in2" endpinid="ADC-11-out2" pointList="520,144,412,144,412,176,396,176" />
+<item itemtype="Connector" uid="connector-1655" startpinid="ADC-36-out2" endpinid="74HC85-205-A2" pointList="388,220,436,220,436,268,520,268" />
 
 <item itemtype="Connector" uid="Connector-1780" startpinid="Diode-1778-lPin" endpinid="Node-1784-0" pointList="708,604,732,604" />
 
@@ -399,5 +383,7 @@
 <item itemtype="Connector" uid="Connector-1787" startpinid="Node-1786-2" endpinid="Or Gate-441-out" pointList="668,148,668,144,636,144" />
 
 <item itemtype="Connector" uid="Connector-1788" startpinid="Node-1786-1" endpinid="Buffer-1037-in0" pointList="668,148,668,236" />
+
+<item itemtype="Connector" uid="connector-1635" startpinid="Voltage Source-8-outPin" endpinid="ADC-36-in0" pointList="312,160,340,160,340,204" />
 
 </circuit>
