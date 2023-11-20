@@ -8,12 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MiniAndroid extends Enemy
 {
+    int HP = 5;
     GifImage EnemyGif = new GifImage("mini-android.gif");
 
     public void act()
     {
         setImage(EnemyGif.getCurrentImage());
-        mover();
+        //mover();
     }
     protected void mover() {
         super.mover(); // Chama o método mover da classe pai

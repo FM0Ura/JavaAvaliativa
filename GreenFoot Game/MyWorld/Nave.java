@@ -18,14 +18,8 @@ public class Nave extends Actor
             Tiro b1 = new Tiro();
             getWorld().addObject(b1, this.getX(), this.getY());
             b1.setRotation(this.getRotation());
-        }
-        removeBolaSeTocarInimigo();
-    }
-        private void removeBolaSeTocarInimigo() {
-        Actor inimigo = getOneIntersectingObject(Enemy.class);
-        if (inimigo != null) {
-            // A bola está tocando em um inimigo, remova a bola
-            getWorld().removeObject(this);
+            b1.turn(-90);
         }
     }
+       
 }

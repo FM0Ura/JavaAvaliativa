@@ -15,10 +15,21 @@ public class Tiro extends Actor {
 
     private void checkCollision() {
         Enemy enemy = (Enemy) getOneIntersectingObject(Enemy.class);
+        
         if (enemy != null) {
-            World world = getWorld();
-            world.removeObject(enemy);
-            shouldRemove = true;
+            
+            System.out.println("!!!" + enemy.HP);
+            if(enemy.HP != 0){
+                
+                enemy.HP--;
+                shouldRemove = true;
+                //System.out.println("" + enemy.HP);
+            } else if(enemy.HP==0){
+                System.out.println("matou");
+                getWorld().removeObject(enemy);
+                shouldRemove = true;
+            }
+            
         }
     }
 

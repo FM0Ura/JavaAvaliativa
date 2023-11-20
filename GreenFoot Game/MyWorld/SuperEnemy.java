@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class SuperEnemy extends Enemy
 {
+    int HP = 3;
     GifImage EnemyGif = new GifImage("super-enemy.gif");
     /**
      * Act - do whatever the SuperEnemy wants to do. This method is called whenever

@@ -12,7 +12,7 @@ public class Alien2 extends Enemy
     public void act()
     {
         setImage(EnemyGif.getCurrentImage());
-        mover();
+        //mover();
     }
     protected void mover() {
         super.mover(); // Chama o método mover da classe pai

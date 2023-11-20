@@ -26,16 +26,27 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Alien2 alien2 = new Alien2();
+        Nave nave = new Nave();
+        /*Alien2 alien2 = new Alien2();
+        alien2.HP = 2;
         addObject(alien2,451,123);
         alien2.setLocation(525,122);
-        Alien alien = new Alien();
+        Alien alien = new Alien(2);
         addObject(alien,481,56);
         MiniAndroid miniAndroid = new MiniAndroid();
+        miniAndroid.HP = 3;
         addObject(miniAndroid,503,213);
         SuperEnemy superEnemy = new SuperEnemy();
+        superEnemy.HP = 8;
         addObject(superEnemy,231,168);
-        Nave nave = new Nave();
+        
         addObject(nave,307,336);
+        removeObject(superEnemy);
+        removeObject(miniAndroid);
+        alien.setLocation(158,132);
+        alien2.setLocation(485,116);*/
+        while(this.getObjects(Nave.class).contains(nave)){
+            System.out.println("acabou");
+        }
     }
 }
