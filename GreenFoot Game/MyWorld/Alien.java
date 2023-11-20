@@ -2,16 +2,16 @@ import greenfoot.*;
 
 public class Alien extends Enemy
 {
-    
     GifImage EnemyGif = new GifImage("alien.gif");
-    public Alien(int HP){
-        this.HP = HP;
+    
+    public Alien(){
+        this.HP = 4;
     }
     
     public void act()
     {
         setImage(EnemyGif.getCurrentImage());
-        mover();
+        //mover();
            
     }
     protected void mover() {

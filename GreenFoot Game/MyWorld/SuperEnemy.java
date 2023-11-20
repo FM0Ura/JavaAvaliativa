@@ -18,4 +18,7 @@ public class SuperEnemy extends Enemy
     {
          setImage(EnemyGif.getCurrentImage());
     }
+    public SuperEnemy(){
+        this.HP = 14;
+    }
 }

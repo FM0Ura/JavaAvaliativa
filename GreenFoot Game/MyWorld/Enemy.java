@@ -1,7 +1,6 @@
 import greenfoot.*;
 
 public class Enemy extends Actor {
-    
     int HP=0;
     public void act() {
         mover();
@@ -20,5 +19,4 @@ public class Enemy extends Actor {
             Greenfoot.stop(); // Jogo acaba se Enemy colidir com a Nave
         }
     }
-    
 }

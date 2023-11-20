@@ -17,7 +17,10 @@ public class MiniAndroid extends Enemy
         //mover();
     }
     protected void mover() {
-        super.mover(); // Chama o método mover da classe pai
+        super.mover();
+    }
+    public MiniAndroid(){
+        this.HP = 4;
     }
 
 }

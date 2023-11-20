@@ -15,6 +15,9 @@ public class Alien2 extends Enemy
         //mover();
     }
     protected void mover() {
-        super.mover(); // Chama o método mover da classe pai
+        super.mover();
+    }
+    public Alien2(){
+        this.HP = 2;
     }
 }

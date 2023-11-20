@@ -15,38 +15,28 @@ public class MyWorld extends World
      */
     public MyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // DEFAULT 600x400 size of 1x1 pixels.
         super(600, 400, 1); 
         prepare();
     }
     
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
+        Alien2 alien2 = new Alien2();
+        addObject(alien2,476,84);
+        Alien alien = new Alien();
+        addObject(alien,254,84);
+        Alien alien3 = new Alien();
+        addObject(alien3,101,80);
         Nave nave = new Nave();
-        /*Alien2 alien2 = new Alien2();
-        alien2.HP = 2;
-        addObject(alien2,451,123);
-        alien2.setLocation(525,122);
-        Alien alien = new Alien(2);
-        addObject(alien,481,56);
-        MiniAndroid miniAndroid = new MiniAndroid();
-        miniAndroid.HP = 3;
-        addObject(miniAndroid,503,213);
-        SuperEnemy superEnemy = new SuperEnemy();
-        superEnemy.HP = 8;
-        addObject(superEnemy,231,168);
+        addObject(nave,288,338);
+        /*while(this.getObjects(Nave.class).contains(nave)){
+        System.out.println("acabou");
+        }*/ // ESTÁ FUNCIONANDO O LOOP
         
-        addObject(nave,307,336);
-        removeObject(superEnemy);
-        removeObject(miniAndroid);
-        alien.setLocation(158,132);
-        alien2.setLocation(485,116);*/
-        while(this.getObjects(Nave.class).contains(nave)){
-            System.out.println("acabou");
+        
+        if(nave.score % 15 == 0){
+            // CRIAR SUPERENEMY AQUI!
         }
     }
 }
